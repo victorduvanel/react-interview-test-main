@@ -21,7 +21,7 @@ function ListItem({ className, clickable, dense, onClick, ...rest }: Props) {
 
         // selection of all li with querySelector then remove classes.selected forEach item of classList
         const HighlightListItem = document.querySelectorAll('li');
-        HighlightListItem.forEach(item => item.classList.remove(classes.selected));
+        HighlightListItem.forEach((item) => item.classList.remove(classes.selected));
 
         // selection class only for selected
         node.classList.add(classes.selected);
