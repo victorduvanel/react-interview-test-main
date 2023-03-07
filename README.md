@@ -34,6 +34,7 @@ This section describes the functionality of the application if it were working a
 - When I add a password and save it, then refresh my browser, I can't see the password that I just created any more. Passwords and modifications to them should be persisted so that I can still see my passwords after refreshing or revisiting after having closed my browser.
 
 - In the passwords list view, when I select a password, then go and edit the name of the password, then click on save, the password is not highlighted in the list anymore even though it is still the selected one (indicated by the fact that I can still see it in the password view area). A password should remain selected in the list when I edit its name.
+**Totor comment -> this issue seems to be solved by herself**
 
 - In the passwords list view, when I have a password already selected and I select another one, both passwords are now highlighted indicating selection. Only the most recently selected password should be highlighted.
 
