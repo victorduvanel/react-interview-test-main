@@ -11,9 +11,14 @@ import ListItem from '../atoms/ListItem';
 import clsx from 'clsx';
 import TextArea from '../atoms/TextArea';
 
-const UrlList = React.memo(({ urls, onDelete }) => (
+type Props = {
+    onDelete: any;
+    urls: any;
+  };
+
+const UrlList = React.memo(({ urls, onDelete }: Props) => (
     <List className={classes.urlList}>
-        {urls?.map((urlEntry, index) => (
+        {urls?.map((urlEntry: any, index: number) => (
             <ListItem dense className={classes.urlListItem}>
                 <input autoFocus value={urlEntry} />
                 <Icon onClick={() => onDelete(index)} size="small" className="fas fa-times" />
@@ -27,19 +32,19 @@ const UrlList = React.memo(({ urls, onDelete }) => (
     </List>
 ));
 
-function PasswordEdit({ password, onSave, onDelete, onCancel }) {
+function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
     const [values, setValues] = useState(password);
 
     const [urlInput, setUrlInput] = useState('');
 
-    function change(partial) {
-        setValues((values) => ({
+    function change(partial: any) {
+        setValues((values: any) => ({
             ...values,
             ...partial,
         }));
     }
 
-    function handleChange(e) {
+    function handleChange(e: any) {
         change({ [e.target.name]: e.target.value });
     }
 
