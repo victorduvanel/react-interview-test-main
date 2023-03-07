@@ -19,7 +19,7 @@ type Props = {
 const UrlList = React.memo(({ urls, onDelete }: Props) => (
     <List className={classes.urlList}>
         {urls?.map((urlEntry: any, index: number) => (
-            <ListItem dense className={classes.urlListItem}>
+            <ListItem key={index} dense className={classes.urlListItem}>
                 <input autoFocus defaultValue={urlEntry} />
                 <Icon onClick={() => onDelete(index)} size="small" className="fas fa-times" />
             </ListItem>
