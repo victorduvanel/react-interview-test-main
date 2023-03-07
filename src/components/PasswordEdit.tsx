@@ -94,10 +94,7 @@ function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
     return (
         <div className={classes.container}>
             {showAlert && (
-                <Alert
-                    message="This URL is already present in this password."
-                    onClose={() => setShowAlert(false)}
-                />
+                <Alert message="This URL is already present in this password." onClose={() => setShowAlert(false)} />
             )}
             <h2 className={classes.title}>
                 <input
