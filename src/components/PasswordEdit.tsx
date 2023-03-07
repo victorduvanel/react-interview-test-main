@@ -20,7 +20,7 @@ const UrlList = React.memo(({ urls, onDelete }: Props) => (
     <List className={classes.urlList}>
         {urls?.map((urlEntry: any, index: number) => (
             <ListItem dense className={classes.urlListItem}>
-                <input autoFocus value={urlEntry} />
+                <input autoFocus defaultValue={urlEntry} />
                 <Icon onClick={() => onDelete(index)} size="small" className="fas fa-times" />
             </ListItem>
         ))}
@@ -91,7 +91,7 @@ function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
                     autoFocus
                     className={classes.titleInput}
                     name="name"
-                    value={values.name}
+                    defaultValue={values.name}
                     onChange={handleChange}
                 />
             </h2>
