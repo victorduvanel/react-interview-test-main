@@ -19,11 +19,12 @@ function ListItem({ className, clickable, dense, onClick, ...rest }: Props) {
 
         const { currentTarget: node } = e;
 
-        if (node.classList.contains(classes.selected)) {
-            node.classList.remove(classes.selected);
-        } else {
-            node.classList.add(classes.selected);
-        }
+        // selection of all li with querySelector then remove classes.selected forEach item of classList
+        const HighlightListItem = document.querySelectorAll('li');
+        HighlightListItem.forEach(item => item.classList.remove(classes.selected));
+
+        // selection class only for selected
+        node.classList.add(classes.selected);
     }
 
     return <li className={rootClassName} onClick={handleClick} {...rest} />;
