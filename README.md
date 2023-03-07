@@ -43,7 +43,7 @@ This section describes the functionality of the application if it were working a
 - When adding the same url to different passwords, the user should be alerted as to the fact that they might have an outdated password inside their password storage since different passwords are now stored for the same url.
 
 - In the password edit view, when I add new url items they don't appear in the list of urls while editing. After saving and clicking on edit again they do appear. They should appear while I'm adding them inside the password edit view.
-** Totor coment -> I had try a lot of solution for this (and the below) issues but nothing working well. In first case I had think to create a new hook with useState and I remember when the "Add" button hitted for the first, the data appear in the ListItem. So, I maybe think the fix comes here : onChange={(e) => setUrlInput(e.target.value)} or around that. But the time is ended and I will be commit my no-change right now. 
+**Totor coment -> I had try a lot of solution for this (and the below) issues but nothing working well. In first case I had think to create a new hook with useState and I remember when the "Add" button hitted for the first, the data appear in the ListItem. So, I maybe think the fix comes here : onChange={(e) => setUrlInput(e.target.value)} or around that. But the time is ended and I will be commit my no-change right now.**
 
 - In the password edit view, when trying to delete one of the urls for a given password by clicking the 'x' icon on one of the url list items, nothing happens. The url for which the 'x' icon was clicked should be deleted.
 
