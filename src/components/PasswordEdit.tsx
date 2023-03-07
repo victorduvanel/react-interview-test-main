@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
+import Alert from '../atoms/Alert';
 import Icon from '../atoms/Icon';
 import LabelledIconButton from './LabelledIconButton';
 import classes from './PasswordEdit.module.css';
@@ -34,8 +35,8 @@ const UrlList = React.memo(({ urls, onDelete }: Props) => (
 
 function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
     const [values, setValues] = useState(password);
-
     const [urlInput, setUrlInput] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
 
     function change(partial: any) {
         setValues((values: any) => ({
@@ -66,6 +67,12 @@ function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
     function handleUrlAdd() {
         const urls = values.url || [];
 
+        const duplicateUrl = urls.find((urlEntry: string) => urlEntry === urlInput);
+        if (duplicateUrl) {
+            setShowAlert(true);
+            return;
+        }
+
         urls.unshift(urlInput);
 
         change({ url: urls });
@@ -86,6 +93,12 @@ function PasswordEdit({ password, onSave, onDelete, onCancel }: any) {
 
     return (
         <div className={classes.container}>
+            {showAlert && (
+                <Alert
+                    message="This URL is already present in this password."
+                    onClose={() => setShowAlert(false)}
+                />
+            )}
             <h2 className={classes.title}>
                 <input
                     autoFocus
