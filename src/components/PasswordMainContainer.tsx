@@ -7,6 +7,7 @@ import NoPasswordSelected from './NoPasswordSelected';
 import NoPasswords from './NoPasswords';
 import PasswordView from './PasswordView';
 import PasswordEdit from './PasswordEdit';
+import * as storage from '../storage';
 
 import { Password } from '../models';
 import classes from './PasswordMainContainer.module.css';
@@ -41,6 +42,7 @@ const PasswordMain = ({
 
     function handleCreatePassword() {
         const newPassword = createNewPassword();
+        storage.setItem('password', newPassword);
         onPasswordCreated(newPassword);
         setSelectedPasswordId(newPassword.id);
         setEditing(true);
@@ -51,6 +53,7 @@ const PasswordMain = ({
     }
 
     function handleDelete(id: string) {
+        storage.removeItem('password');
         onPasswordDeleted(id);
         setEditing(false);
         setSelectedPasswordId(null);
@@ -65,6 +68,7 @@ const PasswordMain = ({
     }
 
     function handleSave(password: Password) {
+        storage.setItem('password', password);
         onPasswordEdited(password);
         setEditing(false);
     }
@@ -110,7 +114,7 @@ const PasswordMain = ({
                     ) : (
                         <PasswordView
                             key={selectedPasswordId}
-                            password={decryptedPasswords[selectedPasswordId]}
+                            password={storage.getItem('password')}
                             onEdit={handlePasswordEditIntent}
                         />
                     )
