@@ -14,7 +14,7 @@ import TextArea from '../atoms/TextArea';
 type Props = {
     onDelete: any;
     urls: any;
-  };
+};
 
 const UrlList = React.memo(({ urls, onDelete }: Props) => (
     <List className={classes.urlList}>
